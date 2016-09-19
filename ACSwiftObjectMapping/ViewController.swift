@@ -24,7 +24,6 @@ class ViewController: NSViewController {
         
     }
     
-    
     @IBAction func mapPressed(sender: AnyObject) {
         
         // Get Json
@@ -41,8 +40,7 @@ class ViewController: NSViewController {
         let classCreator = ClassCreator()
         let classText = classCreator.createClass(objectsDict: objectsDict, className: txtClassName.stringValue.capitalizingFirstLetter())
         
-        // file yazdır
-       // print(classText)
+        // Write To File
         let url = SystemIO.createClass(text: classText, fileURL: nil, className: txtClassName.stringValue.capitalizingFirstLetter(), isCreateWithFolder: true)
         
         // Inner Dictionaries
@@ -60,15 +58,12 @@ class ViewController: NSViewController {
                     }
                 }
                 
-                
                 let classCreator = ClassCreator()
                 let classText = classCreator.createClass(objectsDict: objectsDict, className: "\(key.capitalizingFirstLetter())")
                 
-                // file yazdır
-                print(classText)
+                // Write To File
                 SystemIO.createClass(text: classText, fileURL: url, className: key.capitalizingFirstLetter(), isCreateWithFolder: false)
             }
-            
         }
         
     }
