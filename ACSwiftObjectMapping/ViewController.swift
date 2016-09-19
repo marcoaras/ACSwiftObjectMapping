@@ -11,8 +11,6 @@ import Cocoa
 
 class ViewController: NSViewController {
     
-    
-    
     @IBOutlet weak var txtClassName: NSTextField!
     @IBOutlet var txtJson: NSTextView!
     
