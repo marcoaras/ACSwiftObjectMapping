@@ -63,7 +63,10 @@ class ViewController: NSViewController {
                 SystemIO.createClass(text: classText, fileURL: url, className: key.capitalizingFirstLetter(), isCreateWithFolder: false)
             }
         }
-        
+        let alert:NSAlert = NSAlert();
+        alert.messageText = "Swift class file(s) created";
+        alert.informativeText = "You can find your files path: \(url.path)";
+        alert.runModal();
     }
     
     private func getObjectLists(dictList: NSDictionary) -> (objectsDict:[String: Type], innerObjectDict: [String: [String: Any]])
