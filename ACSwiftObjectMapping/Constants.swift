@@ -36,11 +36,14 @@ let stringType = "private var objectName : String? \r\n\tproperties"
 // Getter
 let getterType = "var objectName : className {\r\n\t\treturn _objectName!\r\n\t}\r\n\r\n\tpropertyGetter"
 
-// Init Function
+// Init Functions
 let initDictionaryType = "if (dictionary[\"objectName\"] != nil) { _objectName = className(dictionary: dictionary[\"objectName\"] as! NSDictionary) } \r\n\t\tinitInside"
 let initClassArrayType = "if (dictionary[\"objectName\"] != nil) { _objectName = className.modelsFromDictionaryArray(array: dictionary[\"objectName\"] as! NSArray) } \r\n\t\tinitInside"
 let initObjectArrayType = "if (dictionary[\"objectName\"] != nil) { _objectName = dictionary[\"objectName\"] as! NSArray } \r\n\t\tinitInside"
 let initCoreType = "_objectName = dictionary[\"objectName\"] as? className \r\n\t\tinitInside"
+
+let initParams = "objectName: className initParams"
+let initInsideWithparams = "_objectName = objectName\r\n\t\tinitWithParams"
 
 // documentPresentation
 let docPresObject = "dictionary.setValue(self._objectName, forKey: \"objectName\")\r\n\t\tdictionaryInside"

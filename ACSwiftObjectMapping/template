@@ -21,20 +21,27 @@ public class ClassName {
 
     propertyGetter
 
+    public init(){}
+
+    public init(initFirstParams){
+
+        initWithParams
+    }
+
+    public init(dictionary: NSDictionary) {
+
+        initInside
+    }
+
     public class func modelsFromDictionaryArray(array:NSArray) -> [ClassName]
     {
         var models:[ClassName] = []
         for item in array
         {
-            models.append(ClassName(dictionary: item as! NSDictionary)!)
+            models.append(ClassName(dictionary: item as! NSDictionary))
         }
         return models
     }
-
-	required public init?(dictionary: NSDictionary) {
-
-		initInside
-	}
 
 	public func dictionaryRepresentation() -> NSDictionary {
 

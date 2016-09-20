@@ -18,6 +18,7 @@ class ClassCreator {
         for (key, value) in objectsDict{
             classText = self.createProperties(keyValue:key, objecType: value, classString: classText)
             classText = self.fillInitFunc(keyValue: key, objecType: value, classString: classText)
+            classText = self.fillInitWithParams(keyValue: key, objecType: value, classString: classText)
             classText = self.fillDocumantPresentation(keyValue:key, objecType: value, classString: classText)
         }
         
@@ -194,6 +195,127 @@ class ClassCreator {
         return changeStr
     }
     
+    private func fillInitWithParams(keyValue: String, objecType:Type, classString : String) -> String{
+    
+        var changeStr = classString
+       
+        switch objecType {
+            
+        case Type.dictionaryObject:
+            
+            var paramStr = initParams
+            paramStr = replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
+            paramStr = replaceText(orginalText: paramStr, ofString: clazzName, witString: keyValue.capitalizingFirstLetter())
+            if changeStr.contains("initFirstParams"){
+                changeStr = replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
+            } else {
+                changeStr = replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
+            }
+            
+            
+            break
+            
+        case Type.classArrayObject:
+            
+            var paramStr = initParams
+            paramStr = replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
+            paramStr = replaceText(orginalText: paramStr, ofString: clazzName, witString: "Array<\(keyValue.capitalizingFirstLetter())>")
+            if changeStr.contains("initFirstParams"){
+                changeStr = replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
+            } else {
+                changeStr = replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
+            }
+            break
+            
+        case Type.stringArrayObject:
+            
+            var paramStr = initParams
+            paramStr = replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
+            paramStr = replaceText(orginalText: paramStr, ofString: clazzName, witString: "Array<String>")
+            if changeStr.contains("initFirstParams"){
+                changeStr = replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
+            } else {
+                changeStr = replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
+            }
+            
+            break
+            
+        case Type.intArrayObject:
+            
+            var paramStr = initParams
+            paramStr = replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
+            paramStr = replaceText(orginalText: paramStr, ofString: clazzName, witString: "Array<Int>")
+            if changeStr.contains("initFirstParams"){
+                changeStr = replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
+            } else {
+                changeStr = replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
+            }
+            
+            break
+            
+        case Type.boolObject:
+            
+            var paramStr = initParams
+            paramStr = replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
+            paramStr = replaceText(orginalText: paramStr, ofString: clazzName, witString: "Bool")
+            if changeStr.contains("initFirstParams"){
+                changeStr = replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
+            } else {
+                changeStr = replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
+            }
+            
+            break
+            
+        case Type.doubleObject:
+            
+            var paramStr = initParams
+            paramStr = replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
+            paramStr = replaceText(orginalText: paramStr, ofString: clazzName, witString: "Double")
+            if changeStr.contains("initFirstParams"){
+                changeStr = replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
+            } else {
+                changeStr = replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
+            }
+            
+            break
+            
+        case Type.stringObject:
+            
+            var paramStr = initParams
+            paramStr = replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
+            paramStr = replaceText(orginalText: paramStr, ofString: clazzName, witString: "String")
+            if changeStr.contains("initFirstParams"){
+                changeStr = replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
+            } else {
+                changeStr = replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
+            }
+            
+            break
+            
+        case Type.intObject:
+            
+            var paramStr = initParams
+            paramStr = replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
+            paramStr = replaceText(orginalText: paramStr, ofString: clazzName, witString: "Int")
+            if changeStr.contains("initFirstParams"){
+                changeStr = replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
+            } else {
+                changeStr = replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
+            }
+            
+            break
+            
+        default:
+            break
+        }
+        
+        var insideWithparams = initInsideWithparams
+        insideWithparams = replaceText(orginalText: insideWithparams, ofString: objectName, witString: keyValue)
+        changeStr = replaceText(orginalText: changeStr, ofString: "initWithParams", witString: insideWithparams)
+        
+        return changeStr
+    }
+    
     private func fillDocumantPresentation(keyValue: String, objecType:Type, classString : String) -> String
     {
         var changeStr = classString
@@ -239,6 +361,9 @@ class ClassCreator {
         str = replaceText(orginalText: str, ofString: "propertyGetter", witString: "")
         str = replaceText(orginalText: str, ofString: "initInside", witString: "")
         str = replaceText(orginalText: str, ofString: "dictionaryInside", witString: "")
+        str = replaceText(orginalText: str, ofString: "initParams", witString: "")
+        str = replaceText(orginalText: str, ofString: "initWithParams", witString: "")
+        
         return str
     }
     
