@@ -11,6 +11,8 @@
 		DA33E60E1D8863FA00FA42A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA33E60D1D8863FA00FA42A7 /* ViewController.swift */; };
 		DA33E6101D8863FA00FA42A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA33E60F1D8863FA00FA42A7 /* Assets.xcassets */; };
 		DA33E6131D8863FA00FA42A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA33E6111D8863FA00FA42A7 /* Main.storyboard */; };
+		DA71FAF81D9183EB008F3CBE /* PropertyCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71FAF71D9183EB008F3CBE /* PropertyCreator.swift */; };
+		DA71FAFA1D918528008F3CBE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA71FAF91D918528008F3CBE /* Helper.swift */; };
 		DAACC9BA1D8C5FF4008BC3C0 /* template in Resources */ = {isa = PBXBuildFile; fileRef = DAACC9B91D8C5FF4008BC3C0 /* template */; };
 		DAACC9BD1D8C9933008BC3C0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAACC9BC1D8C9933008BC3C0 /* Constants.swift */; };
 		DAACC9BF1D8CA0C4008BC3C0 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAACC9BE1D8CA0C4008BC3C0 /* String+Ext.swift */; };
@@ -25,6 +27,8 @@
 		DA33E60F1D8863FA00FA42A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA33E6121D8863FA00FA42A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA33E6141D8863FA00FA42A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA71FAF71D9183EB008F3CBE /* PropertyCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyCreator.swift; sourceTree = "<group>"; };
+		DA71FAF91D918528008F3CBE /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		DAACC9B91D8C5FF4008BC3C0 /* template */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = template; sourceTree = "<group>"; };
 		DAACC9BC1D8C9933008BC3C0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DAACC9BE1D8CA0C4008BC3C0 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 			children = (
 				DAACC9C21D8CB6CB008BC3C0 /* SystemIO.swift */,
 				DAACC9C01D8CB572008BC3C0 /* ClassCreator.swift */,
+				DA71FAF71D9183EB008F3CBE /* PropertyCreator.swift */,
+				DA71FAF91D918528008F3CBE /* Helper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -182,7 +188,9 @@
 			files = (
 				DA33E60E1D8863FA00FA42A7 /* ViewController.swift in Sources */,
 				DAACC9C11D8CB572008BC3C0 /* ClassCreator.swift in Sources */,
+				DA71FAF81D9183EB008F3CBE /* PropertyCreator.swift in Sources */,
 				DA33E60C1D8863FA00FA42A7 /* AppDelegate.swift in Sources */,
+				DA71FAFA1D918528008F3CBE /* Helper.swift in Sources */,
 				DAACC9BF1D8CA0C4008BC3C0 /* String+Ext.swift in Sources */,
 				DAACC9C31D8CB6CB008BC3C0 /* SystemIO.swift in Sources */,
 				DAACC9BD1D8C9933008BC3C0 /* Constants.swift in Sources */,

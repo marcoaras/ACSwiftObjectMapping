@@ -27,4 +27,5 @@ extension String {
         let numberCharacters = NSCharacterSet.decimalDigits.inverted
         return !self.isEmpty && self.rangeOfCharacter(from: numberCharacters) == nil
     }
+    
 }
