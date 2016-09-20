@@ -30,7 +30,7 @@ class ClassCreator {
     private func createProperties(keyValue: String, objecType:Type, classString : String) -> String
     {
         var changeStr = classString
-        var properties = "properties"
+        let properties = "properties"
         switch objecType {
             
         case Type.dictionaryObject:
@@ -80,75 +80,52 @@ class ClassCreator {
         return changeStr
     }
     
-   
-    
     private func fillInitFunc(keyValue: String, objecType:Type, classString : String) -> String
     {
     
+        let initInside = "initInside"
         var changeStr = classString
         
         switch objecType {
             
         case Type.dictionaryObject:
             
-            var dictStr = initDictionaryType
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: objectName, witString: keyValue)
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: clazzName, witString: keyValue.capitalizingFirstLetter())
-            changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initInside", witString: dictStr)
+            changeStr = InitFuncCreator.createInitFuncwithDict(objectStr: initDictionaryType, keyValue: keyValue, classStr: changeStr, constantValue: initInside, classType: keyValue.capitalizingFirstLetter())
             break
             
         case Type.classArrayObject:
             
-            var dictStr = initClassArrayType
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: objectName, witString: keyValue)
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: clazzName, witString: keyValue.capitalizingFirstLetter())
-            changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initInside", witString: dictStr)
+            changeStr = InitFuncCreator.createInitFuncwithDict(objectStr: initClassArrayType, keyValue: keyValue, classStr: changeStr, constantValue: initInside, classType: keyValue.capitalizingFirstLetter())
             break
             
         case Type.stringArrayObject:
             
-            var dictStr = initObjectArrayType
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: objectName, witString: keyValue)
-            changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initInside", witString: dictStr)
+            changeStr = InitFuncCreator.createInitFuncWithArray(objectStr: initObjectArrayType, keyValue: keyValue, classStr: changeStr, constantValue: initInside)
             break
             
         case Type.intArrayObject:
             
-            var dictStr = initObjectArrayType
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: objectName, witString: keyValue)
-            changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initInside", witString: dictStr)
+            changeStr = InitFuncCreator.createInitFuncWithArray(objectStr: initObjectArrayType, keyValue: keyValue, classStr: changeStr, constantValue: initInside)
             break
             
         case Type.boolObject:
             
-            var dictStr = initCoreType
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: objectName, witString: keyValue)
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: clazzName, witString: "Bool")
-            changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initInside", witString: dictStr)
+            changeStr = InitFuncCreator.createInitFuncwithDict(objectStr: initCoreType, keyValue: keyValue, classStr: changeStr, constantValue: initInside, classType: "Bool")
             break
             
         case Type.doubleObject:
             
-            var dictStr = initCoreType
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: objectName, witString: keyValue)
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: clazzName, witString: "Double")
-            changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initInside", witString: dictStr)
+            changeStr = InitFuncCreator.createInitFuncwithDict(objectStr: initCoreType, keyValue: keyValue, classStr: changeStr, constantValue: initInside, classType: "Double")
             break
             
         case Type.stringObject:
             
-            var dictStr = initCoreType
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: objectName, witString: keyValue)
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: clazzName, witString: "String")
-            changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initInside", witString: dictStr)
+            changeStr = InitFuncCreator.createInitFuncwithDict(objectStr: initCoreType, keyValue: keyValue, classStr: changeStr, constantValue: initInside, classType: "String")
             break
             
         case Type.intObject:
             
-            var dictStr = initCoreType
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: objectName, witString: keyValue)
-            dictStr = Helper.replaceText(orginalText: dictStr, ofString: clazzName, witString: "Int")
-            changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initInside", witString: dictStr)
+            changeStr = InitFuncCreator.createInitFuncwithDict(objectStr: initCoreType, keyValue: keyValue, classStr: changeStr, constantValue: initInside, classType: "Int")
             break
             
         default:
