@@ -29,8 +29,9 @@ class ClassCreator {
     
     private func createProperties(keyValue: String, objecType:Type, classString : String) -> String
     {
-        var changeStr = classString
+        
         let properties = "properties"
+        var changeStr = classString
         switch objecType {
             
         case Type.dictionaryObject:
@@ -137,112 +138,49 @@ class ClassCreator {
     
     private func fillInitWithParams(keyValue: String, objecType:Type, classString : String) -> String{
     
+        let cInitParams = "initParams"
         var changeStr = classString
        
         switch objecType {
             
         case Type.dictionaryObject:
             
-            var paramStr = initParams
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: clazzName, witString: keyValue.capitalizingFirstLetter())
-            if changeStr.contains("initFirstParams"){
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
-            } else {
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
-            }
-            
-            
+            changeStr = InitFuncCreator.createInitWithParams(objectStr: initParams, keyValue: keyValue, classStr: changeStr, constantValue: cInitParams, classType: keyValue.capitalizingFirstLetter())
             break
             
         case Type.classArrayObject:
             
-            var paramStr = initParams
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: clazzName, witString: "Array<\(keyValue.capitalizingFirstLetter())>")
-            if changeStr.contains("initFirstParams"){
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
-            } else {
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
-            }
+            changeStr = InitFuncCreator.createInitWithParams(objectStr: initParams, keyValue: keyValue, classStr: changeStr, constantValue: cInitParams, classType: "Array<\(keyValue.capitalizingFirstLetter())>")
             break
             
         case Type.stringArrayObject:
             
-            var paramStr = initParams
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: clazzName, witString: "Array<String>")
-            if changeStr.contains("initFirstParams"){
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
-            } else {
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
-            }
-            
+            changeStr = InitFuncCreator.createInitWithParams(objectStr: initParams, keyValue: keyValue, classStr: changeStr, constantValue: cInitParams, classType: "Array<String>")
             break
             
         case Type.intArrayObject:
             
-            var paramStr = initParams
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: clazzName, witString: "Array<Int>")
-            if changeStr.contains("initFirstParams"){
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
-            } else {
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
-            }
-            
+            changeStr = InitFuncCreator.createInitWithParams(objectStr: initParams, keyValue: keyValue, classStr: changeStr, constantValue: cInitParams, classType: "Array<Int>")
             break
             
         case Type.boolObject:
             
-            var paramStr = initParams
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: clazzName, witString: "Bool")
-            if changeStr.contains("initFirstParams"){
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
-            } else {
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
-            }
-            
+            changeStr = InitFuncCreator.createInitWithParams(objectStr: initParams, keyValue: keyValue, classStr: changeStr, constantValue: cInitParams, classType: "Bool")
             break
             
         case Type.doubleObject:
             
-            var paramStr = initParams
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: clazzName, witString: "Double")
-            if changeStr.contains("initFirstParams"){
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
-            } else {
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
-            }
-            
+            changeStr = InitFuncCreator.createInitWithParams(objectStr: initParams, keyValue: keyValue, classStr: changeStr, constantValue: cInitParams, classType: "Double")
             break
             
         case Type.stringObject:
             
-            var paramStr = initParams
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: clazzName, witString: "String")
-            if changeStr.contains("initFirstParams"){
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
-            } else {
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
-            }
-            
+            changeStr = InitFuncCreator.createInitWithParams(objectStr: initParams, keyValue: keyValue, classStr: changeStr, constantValue: cInitParams, classType: "String")
             break
             
         case Type.intObject:
             
-            var paramStr = initParams
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: objectName, witString: keyValue)
-            paramStr = Helper.replaceText(orginalText: paramStr, ofString: clazzName, witString: "Int")
-            if changeStr.contains("initFirstParams"){
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initFirstParams", witString: paramStr)
-            } else {
-                changeStr = Helper.replaceText(orginalText: changeStr, ofString: "initParams", witString: ",\(paramStr)")
-            }
-            
+            changeStr = InitFuncCreator.createInitWithParams(objectStr: initParams, keyValue: keyValue, classStr: changeStr, constantValue: cInitParams, classType: "Int")
             break
             
         default:

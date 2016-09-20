@@ -51,6 +51,5 @@ class PropertyCreator{
         getterStr = Helper.replaceText(orginalText: getterStr, ofString: clazzName, witString: className)
         changeStr = Helper.replaceText(orginalText: changeStr, ofString: "propertyGetter", witString: getterStr)
         return changeStr
-    }
-    
+    }    
 }
