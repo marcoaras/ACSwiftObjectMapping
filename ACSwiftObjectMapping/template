@@ -28,7 +28,7 @@ public class ClassName {
         initWithParams
     }
 
-    public init(dictionary: NSDictionary) {
+    public init?(dictionary: NSDictionary) {
 
         initInside
     }
@@ -38,7 +38,7 @@ public class ClassName {
         var models:[ClassName] = []
         for item in array
         {
-            models.append(ClassName(dictionary: item as! NSDictionary))
+            models.append(ClassName(dictionary: item as! NSDictionary)!)
         }
         return models
     }
