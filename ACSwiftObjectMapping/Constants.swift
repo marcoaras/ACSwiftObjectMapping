@@ -34,7 +34,8 @@ let boolType = "private var objectName : Bool? \r\n\tproperties"
 let stringType = "private var objectName : String? \r\n\tproperties"
 
 // Getter
-let getterType = "var objectName : className {\r\n\t\treturn _objectName!\r\n\t}\r\n\r\n\tpropertyGetter"
+//let getterType = "var objectName : className {\r\n\t\treturn _objectName!\r\n\t}\r\n\r\n\tpropertyGetter"
+let getterType = "var objectName : className \r\n\t{\r\n\t\tget{\r\n\t\t\treturn _objectName!\r\n\t\t}set{\r\n\t\t\t_objectName = newValue\r\n\t\t}\r\n\t}\r\n\r\n\tpropertyGetter"
 
 // Init Functions
 let initDictionaryType = "if (dictionary[\"objectName\"] != nil) { _objectName = className(dictionary: dictionary[\"objectName\"] as! NSDictionary) } \r\n\t\tinitInside"
